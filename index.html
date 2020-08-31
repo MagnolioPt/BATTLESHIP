@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BattleShip</title>
+
+        
+
+        <style>
+            #player1 {
+                border: 10px solid #CCC;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                image-rendering: -moz-crisp-edges;
+                width: 400px;
+                height: 400px;
+            }
+            #player2 {
+                border: 10px solid #CCC;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                image-rendering: -moz-crisp-edges;
+                width: 400px;
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BattleShip Game</h1>
+        <canvas id="player1" width="10" height="10"></canvas>
+        <canvas id="player2" width="10" height="10"></canvas>
+
+        <script type="module">
+
+            const elem = document.getElementById('player2')
+
+            const context = player2.getContext('2d')
+            elem.addEventListener("click", printPosition)
+
+            function printPosition(event) {
+                
+                var obj = { X : parseInt((event.clientX - elem.offsetLeft - 10) / (elem.clientWidth / elem.width)),
+                    Y : parseInt((event.clientY - elem.offsetTop - 10) / (elem.clientHeight / elem.height)) };
+                console.log(obj)
+                
+                context.fillStyle = 'red'
+                context.fillRect(obj.X, obj.Y, 1, 1)
+                
+            }
+        </script>
+    </body>
+</html>
