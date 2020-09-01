@@ -1,46 +1,46 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>BattleShip</title>
 
-    </head>
-    <body>
-        <h1>BattleShip Game</h1>
+<head>
+    <meta charset="utf-8">
+    <title>BattleShip</title>
 
-        <div id="game"></div>
+</head>
 
-        <script>
+<body>
+    <h1>BattleShip Game</h1>
 
-            let game = document.getElementById("game")
-            let table = document.createElement("table")
-            table.style.border = '1px solid black'
-            game.appendChild(table)
+    <div id="game"></div>
 
-            for (let i = 0; i < 10; i += 1) { 
-                let line = document.createElement("tr")
-                line.style.width = 400
-                line.style.height = 40
-                table.appendChild(line)
-                for (let j = 0; j < 10; j += 1) {
-                    let element = document.createElement("td")
-                    element.style.width = 40
-                    element.style.height = 40
-                    element.style.backgroundColor = 'white'
-                    element.style.border = '1px solid black'
+    <script>
 
-                    let x = document.createAttribute("x")
-                    let y = document.createAttribute("y")
+        let game = document.getElementById("game")
+        let table = document.createElement("table")
+        table.style.border = '1px solid black'
+        game.appendChild(table)
 
+        for (let i = 0; i < 10; i += 1) {
+            let line = document.createElement("tr")
+            line.style.width = 400
+            line.style.height = 40
+            table.appendChild(line)
+            for (let j = 0; j < 10; j += 1) {
+                let element = document.createElement("td")
+                element.style.width = 40
+                element.style.height = 40
+                element.style.backgroundColor = '#0099FF'
+                element.style.border = '1px solid black'
 
-                    x.value = i;
-                    y.value = j;
-
-                    element.setAttributeNode(x)
-                    element.setAttributeNode(y)
-
-                    line.appendChild(element)
+                element.onclick = function changeColor() {
+                    console.log(i)
+                    console.log(j)
+                    var cl = game.getElementsByTagName("td");
+                    cl[i * 10 + j].style.backgroundColor = "red";
                 }
+
+                line.appendChild(element)
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
+
 </html>
